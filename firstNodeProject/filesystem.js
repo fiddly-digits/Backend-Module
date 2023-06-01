@@ -35,22 +35,37 @@ console.log('readfile', fs.readFile);
 // });
 
 // * Elimina un archivo
-fs.unlink('hola.txt', (err) => {
-  if (err) {
-    console.log(err);
-  }
-  console.log('The File was deleted.');
-});
+// fs.unlink('hola.txt', (err) => {
+//   if (err) {
+//     console.log(err);
+//     return;
+//   }
+//   console.log('The File was deleted.');
+// });
 
 //*Copia Un Archivo
-fs.copyFile('message.txt', 'messageCopy.txt', (err) => {
-  if (err) throw err;
-  console.log('The Copy was made succesfully');
-});
+// fs.copyFile('message.txt', 'messageCopy.txt', (err) => {
+//   if (err) throw err;
+//   console.log('The Copy was made succesfully');
+// });
 
 // * Crea un directorio
 
-fs.mkdir('./newDir', (err) => {
+// fs.mkdir('./newDir', (err) => {
+//   if (err) throw err;
+//   console.log('Se ha creado el directorio');
+// });
+
+// * Lee un directorio
+
+const fileReader = (file) => {
+  fs.readFile(file, 'utf8', (err, data) => {
+    if (err) throw err;
+    console.log('Data: ', data);
+  });
+};
+
+fs.readdir('./newDir', 'utf8', (err, files) => {
   if (err) throw err;
-  console.log('Se ha creado el directorio');
+  files.forEach((file) => fileReader(`./newDir/${file}`));
 });

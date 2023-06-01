@@ -1,0 +1,1 @@
+Es un archivo con un texto dentro de un directorio
