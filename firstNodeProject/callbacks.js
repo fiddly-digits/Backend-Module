@@ -32,3 +32,25 @@ irACasa(avisar);
 
 //* Callback Funcion Anonima
 irACasa(() => console.log('Ya llegue apa'));
+
+setTimeout(() => {
+  console.log('Timeout');
+}, 3000);
+
+const koder = {
+  seDieronInformes: false,
+  seEntrevisto: false,
+  sePago: false,
+  seInscribio: false
+};
+
+const darInformes = (koder) => {
+  setTimeout(() => {
+    koder.seDieronInformes = true;
+    return koder;
+  });
+};
+
+const koderInformado = darInformes(koder);
+
+console.log('koder informado', koderInformado);
