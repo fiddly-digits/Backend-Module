@@ -19,7 +19,7 @@ const cake = {
 const readRecipe = (cake) => {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
-      cake.isRecipeRead = false;
+      cake.isRecipeRead = true;
       if (!cake.isRecipeRead) {
         reject('You need to read the recipe');
       }
@@ -91,5 +91,9 @@ const finishCake = async (cake) => {
 };
 
 const pastry = finishCake(cake).then((cake) => {
-  console.log(cake);
+  if (typeof cake !== 'object') {
+    console.log('Error: ', cake);
+  } else {
+    console.log('The Cake is ready: ', cake);
+  }
 });
